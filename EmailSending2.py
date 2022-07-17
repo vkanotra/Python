@@ -13,9 +13,9 @@ def send_mail(temperature):
     message['To'] = receiver_email
     print(message)
 
-    server = smtplib.SMTP('smtp.gmail.com', 587)
-    # server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-    server.starttls()    # tls is transport layer security
+    # server = smtplib.SMTP('smtp.gmail.com', 587)
+    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+    # server.starttls()    # tls is transport layer security
     server.login(sender_email, sender_pass)
     server.sendmail(sender_email, [receiver_email], message.as_string())
     server.quit()
